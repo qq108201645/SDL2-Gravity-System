@@ -1,3 +1,11 @@
+/**********重力系统*********/
+/**手机c4droid可直接加载运行**/
+/**改写来源js,转译c++/SDL2*****/
+/****    by 悠然小赐    *********/
+ /****qq:108201645       ******/
+ /*****包含对球的拖动********/
+ /*需要在sd目录下放置font.ttf字体*/
+ /**************************/
 
 #include <iostream>
 #include <cmath>
@@ -7,7 +15,7 @@
 #include <iomanip>
 using namespace std;
  //注释下面这句将关闭debug
- #define debug
+// #define debug
  
 #if defined(_WIN32)||defined(_WIN64)
 #include <SDL.h>
@@ -502,7 +510,7 @@ void SetEI(GameObject &obj,int i){
 		SetInfo(obj,{0,0,255},u8"速度vy:",obj.vy,4);
 		SetInfo(obj,{0,0,255},u8"角度:",fmod(360+obj.degrees,360),5);
 		SetInfo(obj,{19,12,25},(obj.dstObj1!=-1?u8"碰撞<-:对象":u8"未发现对象 "),obj.dstObj1,6);
-		SetInfo(obj,{19,12,25},(obj.dstObj2!=-1?u8"碰撞->:对":u8"未发现对象 "),obj.dstObj2,7);
+		SetInfo(obj,{19,12,25},(obj.dstObj2!=-1?u8"碰撞->:对象":u8"未发现对象 "),obj.dstObj2,7);
 		SetInfo(obj,{12,22,255},u8"经过的时间:", secondsPassed,8);
 					SetInfo(obj,{12,22,255},u8"速度:",obj.speed,9);
 				SetInfo(obj,{12,22,255},u8"法向冲量:",obj.impulse,10);
@@ -602,7 +610,7 @@ int main(int argc, char **argv) {
 	//	if(mPause)
 		
 		/* 将窗口表面填充为白色*/
-		SDL_FillRect(gScreenSurface, NULL, SDL_MapRGB(gScreenSurface->format, 255, 255, 255));
+		SDL_FillRect(gScreenSurface, NULL, SDL_MapRGB(gScreenSurface->format, 0, 100,100 ));
 		StopHandle(mPause,MouseRect);
 		gameLoop(gameObjects,mPause);
 		if(!mPause){
